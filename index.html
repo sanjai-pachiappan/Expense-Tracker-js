@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1>Expense Tracker</h1>
+      <p>Record what comes in and what goes out, and see your balance at a glance.</p>
+    </header>
+
+    <!-- Summary cards -->
+    <section class="summary" aria-label="Summary">
+      <div class="card card-income">
+        <h2>Total Income</h2>
+        <p id="total-income">₹0</p>
+      </div>
+      <div class="card card-expense">
+        <h2>Total Expense</h2>
+        <p id="total-expense">₹0</p>
+      </div>
+      <div class="card card-balance">
+        <h2>Balance</h2>
+        <p id="balance">₹0</p>
+      </div>
+    </section>
+
+    <!-- Add transaction form -->
+    <section class="panel" aria-label="Add transaction">
+      <h2 class="panel-title">Add Transaction</h2>
+
+      <form id="transaction-form" novalidate>
+        <div class="field">
+          <label for="type">Type</label>
+          <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <input type="text" id="description" placeholder="Salary" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="amount">Amount (₹)</label>
+          <input type="number" id="amount" placeholder="25000" step="0.01" />
+        </div>
+
+        <button type="submit" class="btn-add">Add Transaction</button>
+      </form>
+
+      <p id="error-message" class="error" role="alert"></p>
+    </section>
+
+    <!-- Transaction list -->
+    <section class="panel" aria-label="Transactions">
+      <h2 class="panel-title">Transactions</h2>
+
+      <p id="empty-message" class="empty">No transactions found</p>
+      <ul id="transaction-list" class="transaction-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
